@@ -1,0 +1,38 @@
+<!-- EJS is like HTML + routing + functioning(a little) -->
+<%- include("header") -%>
+<script>
+    function checkTask(button) {
+        button.parentElement.style.opacity = "0.5";
+        button.parentElement.style.textDecoration = "line-through";
+    }
+
+    // function clearTask(button) {
+    //     button.parentElement.remove();
+    // }
+</script>
+
+
+
+    <center><h2><%= heading %></h2></center>
+<div class="container">
+    <h1 id="todo">ToDo List</h1>
+    <form class="" action="/" method="post">
+        <input id="input" type="text" name="newItem" autocomplete="off">  <button type="submit" value="<%= heading %>" name="button">Add Task</button>
+    </form>
+    <ul>
+        <% for(var i=0; i<task.length; i++) { %>
+            <center>
+                    <li>
+                        <form id="list" action="/delete" method="post">
+                        <!-- <input type="checkbox" value="<%= task[i]._id %>" onchange="this.form.submit()" name="checkbox" onclick="checkTask(this)"> -->
+                        <div id="task"><%= task[i].name %></div>
+                        <button id="done_task" onclick="checkTask(this)"  value="<%= task[i]._id %>" name="checkbox" type="submit">✅</button>
+                        <input type="hidden" name="listName" value="<%= heading %>"></input>
+                        </form>
+                    </li>
+            </center>
+        <% } %>
+    </ul>
+</div>    
+
+<%- include("footer") -%>
