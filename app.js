@@ -5,7 +5,8 @@ const mongoose = require("mongoose");
 const loadash = require("lodash");
 const date = require(__dirname + "/date.js");
 
-mongoose.connect("mongodb://0.0.0.0:27017/todolistDB"); ////connecting with db
+////connecting with db
+mongoose.connect("mongodb+srv://shreyanshi:usaMIE15141305@todo.20iunad.mongodb.net/todolistDB");
 
 const app = express();
 
@@ -134,7 +135,9 @@ app.post("/delete", function(req,res){
 });
 
 //Connecting to the port
-app.listen(3000, function(){
+
+const port = process.env.PORT || 3000;
+app.listen(port, function(){
     console.log("Server started on port 3000.");
 });
 
