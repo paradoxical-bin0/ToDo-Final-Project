@@ -6,7 +6,8 @@ const loadash = require("lodash");
 const date = require(__dirname + "/date.js");
 
 ////connecting with db
-mongoose.connect("mongodb+srv://shreyanshi:usaMIE15141305@todo.20iunad.mongodb.net/todolistDB");
+url = "secret_url_for_mogoDB_Atlas_connection"
+mongoose.connect("url");
 
 const app = express();
 
